@@ -1,0 +1,13 @@
+version: '3.7'
+
+services: 
+  app:
+    container_name: nest-grpc-mongo
+    restart: unless-stopped
+    build: 
+      context: ./
+    image: nest-grpc
+    working_dir: /usr/src/app
+    env_file: ./docker.env
+    ports: 
+      - "{TARGET_PORT}:{GRPC_CONTAINER_PORT}"
